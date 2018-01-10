@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.akaita.android.circularseekbar.CircularSeekBar;
+
 public class MainActivity extends AppCompatActivity {
 
-    SeekBar seekBar;
+    CircularSeekBar seekBar;
     Button button;
     TextView textView;
     Boolean counterIsActive=false;
@@ -49,7 +51,8 @@ public void reset (){
             seekBar.setEnabled(false);
             button.setText("Stop");
             textView2.setVisibility(View.INVISIBLE);
-            countDownTimer=new  CountDownTimer((int) seekBar.getProgress() * 1000 + 100, 1000) {
+            countDownTimer=new  CountDownTimer((int) seekBar.getProgress()* 1000 + 100 , 1000) {
+
                 @Override
                 public void onTick(long millisUntilFinished) {
                     Any((int) (millisUntilFinished / 1000));
@@ -74,27 +77,33 @@ public void reset (){
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        seekBar=(SeekBar)findViewById(R.id.seekBar3);
+        CircularSeekBar seekBar=(CircularSeekBar)findViewById(R.id.seekbar);
         button=(Button) findViewById(R.id.button);
         textView=(TextView) findViewById(R.id.textView);
         textView2=(TextView) findViewById(R.id.textView2);
 
         seekBar.setMax(900*2);
         seekBar.setProgress(300);
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        seekBar.setOnCircularSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Any(progress);
+            public void onProgressChanged(CircularSeekBar seekBar, float progress, boolean fromUser) {
+               Any((int) progress);
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
+            public void onStartTrackingTouch(CircularSeekBar seekBar) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
+            public void onStopTrackingTouch(CircularSeekBar seekBar) {
 
+            }
+        });
+        seekBar.setOnCenterClickedListener(new CircularSeekBar.OnCenterClickedListener() {
+            @Override
+            public void onCenterClicked(CircularSeekBar seekBar, float progress) {
+                seekBar.setProgress(0);
             }
         });
 

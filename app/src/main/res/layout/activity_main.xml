@@ -47,19 +47,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SeekBar
-        android:id="@+id/seekBar3"
-        android:layout_width="358dp"
-        android:layout_height="43dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="82dp"
-        android:thumb="@drawable/cupcake"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+    <com.akaita.android.circularseekbar.CircularSeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:enabled="true"
+        app:innerCircleColor="@color/colorAccent"
+        app:progress="0"
+        app:speedMultiplier="2"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="266dp"
+
+        />
 
     <Button
         android:id="@+id/button"
