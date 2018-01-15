@@ -7,42 +7,67 @@
     android:background="@color/colorAccent"
     tools:context="com.eno.nael.cooktimer.MainActivity">
 
+    <com.sdsmdg.harjot.crollerTest.Croller
+        android:id="@+id/croller"
+        android:layout_width="0dp"
+        android:layout_height="312dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="144dp"
+        android:pointerIcon="hand"
+        app:back_circle_color="#EDEDED"
+        app:indicator_color="#0B3C49"
+        app:indicator_width="10"
+        app:is_continuous="true"
+        app:label_color="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:main_circle_color="#FFFFFF"
+        app:max="1000"
+        app:progress_primary_color="#0B3C49"
+        app:progress_radius="400"
+        app:progress_secondary_color="@android:color/white"
+        app:start_offset="45" />
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="269dp"
-        android:layout_height="352dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="186dp"
+        android:layout_height="206dp"
+        android:layout_marginBottom="160dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar3"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="@+id/croller"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ico512" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="143dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="72dp"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@color/colorPrimaryDark"
         android:textColorHighlight="?android:attr/colorMultiSelectHighlight"
         android:textSize="50sp"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/croller" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="16dp"
         android:text="Slide and Press Start!"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,34 +81,17 @@
         android:background="@drawable/asd"
         android:onClick="timerControl"
         android:text="Start"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp" />
+        app:layout_constraintLeft_toLeftOf="parent" />
 
-    <com.sdsmdg.harjot.crollerTest.Croller
-        android:id="@+id/croller"
-        android:layout_width="167dp"
-        android:layout_height="187dp"
-        android:layout_centerInParent="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
-        app:back_circle_color="#EDEDED"
-        app:indicator_color="#0B3C49"
-        app:indicator_width="10"
-        app:is_continuous="true"
-        app:label_color="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:main_circle_color="#FFFFFF"
-        app:max="1000"
-        app:progress_primary_color="#0B3C49"
-        app:progress_secondary_color="#EEEEEE"
-        app:start_offset="45" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
 </android.support.constraint.ConstraintLayout>

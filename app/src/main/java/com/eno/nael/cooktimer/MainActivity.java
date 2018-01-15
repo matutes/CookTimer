@@ -38,7 +38,7 @@ public void reset (){
 
 
 public void Any (int leftTime){
-        int mint =(int) leftTime/60;
+        int mint = leftTime /60;
         int secnd =leftTime-mint*60;
         String StringSecnd=Integer.toString(secnd);
         if (secnd<=9){
@@ -52,7 +52,7 @@ public void timerControl (View view){
             //croller.setEnabled(false);
             button.setText("Stop");
             textView2.setVisibility(View.INVISIBLE);
-            countDownTimer = new CountDownTimer( 100*1000 + 100 , 1000) {
+            countDownTimer = new CountDownTimer( (int)croller.getProgress()*1000 + 100 , 1000) {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
@@ -82,41 +82,36 @@ public void timerControl (View view){
         button=(Button) findViewById(R.id.button);
         textView=(TextView) findViewById(R.id.textView);
         textView2=(TextView) findViewById(R.id.textView2);
+        croller = (Croller) findViewById(R.id.croller);
 
-        Croller croller = (Croller) findViewById(R.id.croller);
+        //croller properties
         croller.setIndicatorWidth(10);
         croller.setBackCircleColor(Color.parseColor("#EDEDED"));
-        croller.setMainCircleColor(Color.WHITE);
+        croller.setMainCircleColor(android.R.color.white);
         croller.setMax(900*2);
-        croller.setStartOffset(45);
-        croller.setIsContinuous(false);
-        croller.setLabelColor(Color.BLACK);
-        croller.setProgressPrimaryColor(Color.parseColor("#0B3C49"));
-        croller.setIndicatorColor(Color.parseColor("#0B3C49"));
-        croller.setProgressSecondaryColor(Color.parseColor("#EEEEEE"));
         croller.setProgress(300);
+        croller.setStartOffset(45);
+        croller.setIsContinuous(true);
+        croller.setLabelColor(Color.BLACK);
+        croller.setProgressPrimaryColor(Color.parseColor("#fb9d4f"));
+        croller.setIndicatorColor(Color.parseColor("#0B3C49"));
+        croller.setProgressSecondaryColor(Color.parseColor("#f9b97a"));
+        croller.setProgressPrimaryCircleSize(60);
 
-        Log.i("theis is the taaaaaaag", String.valueOf(croller.getProgress()));
 
 
 
 
 
 
-       // croller = (Croller) findViewById(R.id.croller);
 
-        croller.setOnProgressChangedListener(new Croller.onProgressChangedListener() {
-            @Override
-            public void onProgressChanged(int progress) {
-                Any(( progress));
-            }
-        });
+
 
          croller.setOnCrollerChangeListener(new OnCrollerChangeListener() {
             @Override
             public void onProgressChanged(Croller croller, int progress) {
-               // use the progress
-                Log.i("theis is the nowwwwwww", String.valueOf(croller.getProgress()));
+                Any(( progress));
+
             }
 
             @Override
